@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantrailing Tábor 2026 | Nemzetközi Kutyakiképzés</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            z-index: -1;
+        }
+
+        .animated-bg::before,
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .animated-bg::before {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -200px;
+            left: -200px;
+        }
+
+        .animated-bg::after {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(100px, -100px) rotate(120deg); }
+            66% { transform: translate(-100px, 100px) rotate(240deg); }
+        }
+
+        /* Header & Nav */
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.8s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .year-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight {
+            display: block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .stat:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.6);
+        }
+
+        .cta-button-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+        }
+
+        .cta-button-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-text {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Instructors */
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .instructor-card {
+            position: relative;
+            perspective: 1000px;
+            height: 320px;
+        }
+
+        .instructor-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .instructor-card:hover .instructor-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .instructor-card-front,
+        .instructor-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .instructor-card-front {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .instructor-card-back {
+            background: rgba(15, 23, 42, 0.9);
+            transform: rotateY(180deg);
+        }
+
+        .instructor-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instructor-flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructor-country {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .instructor-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .timeline-day {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-content li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1.5rem 0;
+            line-height: 1;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+            word-break: break-all;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                transition: right 0.3s ease;
+                z-index: 100;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 5% 3rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat {
+                flex: 1;
+                min-width: calc(50% - 0.5rem);
+                padding: 1rem 1.5rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+
+            .timeline-day {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .features-grid,
+            .instructors-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">MT</div>
+                    <span class="logo-text">MTC Mantrailing Tábor</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    ☰
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#helyszin">Helyszín</a></li>
+                    <li><a href="#program">Program</a></li>
+                    <li><a href="#instructors">Oktatók</a></li>
+                    <li><a href="#pricing">Árak</a></li>
+                    <li><a href="#contact">Kapcsolat</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <div class="year-badge">
+                    <span>🏆</span>
+                    XVI. Alkalommal • 2026
+                </div>
+                <h1>
+                    Nemzetközi
+                    <span class="highlight">Mantrailing Tábor</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Európa egyik legnagyobb és szakmailag legelismertebb mantrailing eseménye INBTI és MTC/MAA instruktorokkal.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Nap képzés</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1280</span>
+                        <span class="stat-label">Résztvevő eddig</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">18</span>
+                        <span class="stat-label">Ország</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">13</span>
+                        <span class="stat-label">Oktató</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#kapcsolat" class="cta-button">
+                        <span>Regisztrálok Most</span>
+                        <span>→</span>
+                    </a>
+                    <a href="#program" class="cta-button cta-button-secondary">
+                        <span>Tudj Meg Többet</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">A Táborról</div>
+                <h2 class="section-title">16. alkalommal Európa legnagyobb mantrailing eseménye</h2>
+                <p class="section-subtitle">
+                    Több mint tizenöt éve szervezzük meg évente öt napos mantrailing táborunkat, amely Európa egyik legnagyobb és szakmailag legelismertebb eseményévé vált.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="glass-card fade-in">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">INBTI Instruktorok</h3>
+                    <p class="feature-text">A világ egyik legnagyobb szakmai tekintéllyel bíró kutyakiképző intézményének képviselői.</p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">TKM Módszertan</h3>
+                    <p class="feature-text">A gyakorlatok alapvetően a Kocher-módszeren alapulnak, személyre szabott feladatokkal.</p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="feature-icon">🌲</div>
+                    <h3 class="feature-title">Változatos Helyszínek</h3>
+                    <p class="feature-text">Minden nap új terepen, különböző környezetekben, árnyékos és hűvösebb erdős területeken.</p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Kis Létszám</h3>
+                    <p class="feature-text">Személyre szabott figyelem és minőségi gyakorlási lehetőség minden páros számára.</p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="feature-icon">🌙</div>
+                    <h3 class="feature-title">Éjszakai Gyakorlat</h3>
+                    <p class="feature-text">Valósághű körülmények között, csapatban végzett éjszakai bevetési gyakorlat.</p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="feature-icon">📜</div>
+                    <h3 class="feature-title">Vizsga Lehetőség</h3>
+                    <p class="feature-text">Tapasztalt párosok számára a Mantrailing Akadémia Alapítvány vizsga szintjein való megmérettetés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oktatok">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">Oktatók</div>
+                <h2 class="section-title">Nemzetközi Szakértők</h2>
+                <p class="section-subtitle">
+                    INBTI instruktorok és hivatásos kutyavezetők Ausztriából, Németországból, Litvániából és Magyarországról
+                </p>
+            </div>
+
+            <div class="instructors-grid">
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇦🇹</div>
+                            <h3>Birgit Neuwirth</h3>
+                            <p class="instructor-country">Ausztria</p>
+                            <p class="instructor-role">INBTI instruktor, hivatásos kutyavezető</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="birgit-neuwirth.jpg" alt="Birgit Neuwirth">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇦🇹</div>
+                            <h3>Bernhard Stummer</h3>
+                            <p class="instructor-country">Ausztria</p>
+                            <p class="instructor-role">INBTI instruktor, hivatásos kutyavezető</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="bernhard-stummer.jpg" alt="Bernhard Stummer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇦🇹</div>
+                            <h3>Horst Konrad</h3>
+                            <p class="instructor-country">Ausztria</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="horst-konrad.jpg" alt="Horst Konrad">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇩🇪</div>
+                            <h3>Michaela Breuer</h3>
+                            <p class="instructor-country">Németország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="michaela-breuer.jpg" alt="Michaela Breuer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇩🇪</div>
+                            <h3>Andreas Vogel</h3>
+                            <p class="instructor-country">Németország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="andreas-vogel.jpg" alt="Andreas Vogel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇩🇪</div>
+                            <h3>Silvia Pagenkemper</h3>
+                            <p class="instructor-country">Németország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="silvia-pagenkemper.jpg" alt="Silvia Pagenkemper">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇱🇹</div>
+                            <h3>Juríj Aleksandrov</h3>
+                            <p class="instructor-country">Litvánia</p>
+                            <p class="instructor-role">INBTI instruktor, hivatásos kutyavezető</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="jurij-aleksandrov.jpg" alt="Juríj Aleksandrov">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇭🇺</div>
+                            <h3>Gránicz Csaba</h3>
+                            <p class="instructor-country">Magyarország</p>
+                            <p class="instructor-role">MTC vezetője, INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="granicz-csaba.jpg" alt="Gránicz Csaba">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇭🇺</div>
+                            <h3>Simon Tibor</h3>
+                            <p class="instructor-country">Magyarország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="simon-tibor.jpg" alt="Simon Tibor">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇭🇺</div>
+                            <h3>Mézes Pál</h3>
+                            <p class="instructor-country">Magyarország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="mezes-pal.jpg" alt="Mézes Pál">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇭🇺</div>
+                            <h3>Dávidházy Tímea</h3>
+                            <p class="instructor-country">Magyarország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="davidhazy-timea.jpg" alt="Dávidházy Tímea">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇭🇺</div>
+                            <h3>Nagy László Zsigmond</h3>
+                            <p class="instructor-country">Magyarország</p>
+                            <p class="instructor-role">INBTI asszisztens instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="nagy-laszlo-zsigmond.jpg" alt="Nagy László Zsigmond">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="instructor-card-inner">
+                        <div class="instructor-card-front">
+                            <div class="instructor-flag">🇭🇺</div>
+                            <h3>Kollár Beáta</h3>
+                            <p class="instructor-country">Magyarország</p>
+                            <p class="instructor-role">INBTI instruktor</p>
+                        </div>
+                        <div class="instructor-card-back">
+                            <img src="kollar-beata.jpg" alt="Kollár Beáta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="helyszin">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">Helyszín</div>
+                <h2 class="section-title">Novákfalva Üdülőfalu</h2>
+                <p class="section-subtitle">
+                    Szombathely szomszédságában, a Kőszegi-hegység lábánál, Alpokalján található kis ékszerdoboz Velem kapujában
+                </p>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="glass-card" style="max-width: 900px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🏡</div>
+                                <div>
+                                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin-bottom: 0.3rem;">52 Vendégház</h3>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">Kis klimatizált vendégházak</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🌳</div>
+                                <div>
+                                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin-bottom: 0.3rem;">9 Hektár</h3>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">Tágas, természetközeli terület</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🅿️</div>
+                                <div>
+                                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin-bottom: 0.3rem;">Parkolás</h3>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">Ingyenes parkolás a helyszínen</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🍽️</div>
+                                <div>
+                                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin-bottom: 0.3rem;">Étkezés</h3>
+                                    <p style="color: var(--gray); font-size: 0.95rem;">Helyszíni étkezési lehetőség</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">📍 Elhelyezkedés</h3>
+                        <p style="text-align: center; color: var(--gray); line-height: 1.8; font-size: 1.05rem;">
+                            Novákfalva Üdülőfalu egy igazi ékszerdoboz a Kőszegi-hegység lábánál, <br>
+                            Velem kapujában, Szombathely közelében. <br>
+                            Tökéletes helyszín a mantrailing gyakorlatokhoz változatos terepekkel.
+                        </p>
+                        <div style="margin-top: 2rem; text-align: center;">
+                            <a href="https://maps.app.goo.gl/novakfalva" target="_blank" style="display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; text-decoration: none; font-weight: 600; border-radius: 12px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);">
+                                <span style="font-size: 1.5rem;">🗺️</span>
+                                <span>Megnyitás Google Maps-ben</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="program">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">Program</div>
+                <h2 class="section-title">5 Napos Intenzív Képzés</h2>
+                <p class="section-subtitle">
+                    Augusztus 19-23, 2026 • Regisztráció 10:00 • Megnyitó 14:00
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-day">1.</div>
+                    <div class="timeline-content">
+                        <h3>Városi Környezet & Komplex Nyomok</h3>
+                        <ul>
+                            <li>Nagy forgalmú területeken való munka</li>
+                            <li>Kontaminált és keresztezett nyomok kezelése</li>
+                            <li>Épületek, közlekedési csomópontok kihívásai</li>
+                            <li>Egyéni szintfelmérés és testreszabott gyakorlatok</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-day">2.</div>
+                    <div class="timeline-content">
+                        <h3>Erdős és Zöld Területek</h3>
+                        <ul>
+                            <li>Természetes terepen való nyomkövetés</li>
+                            <li>Változatos időjárási körülmények hatása</li>
+                            <li>Hosszabb távú nyomok, nagyobb komplexitással</li>
+                            <li>Kutya szintjének megfelelő nehézségi fokozatok</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-day">3-5</div>
+                    <div class="timeline-content">
+                        <h3>Vegyes Terep, Éjszakai Gyakorlat & Vizsga</h3>
+                        <ul>
+                            <li>Városi-természetes átmeneti területek</li>
+                            <li>Valósághű keresési szimulációk</li>
+                            <li>Drón-támogatott keresési gyakorlatok</li>
+                            <li>Éjszakai bevetési gyakorlat</li>
+                            <li>Vizsga lehetőség tapasztalt párosoknak</li>
+                            <li>Személyre szabott visszajelzés és tanúsítvány</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="arak">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">Árak</div>
+                <h2 class="section-title">Részvételi Díjak</h2>
+                <p class="section-subtitle">
+                    5 napos nemzetközi képzés • Augusztus 19-23, 2026
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>1 Kutyával</h3>
+                    <div class="price">120.000 Ft</div>
+                    <p style="color: var(--gray); margin-bottom: 1.5rem;">€300</p>
+                    <p>Teljes oktatási program<br>egy kutyával</p>
+                </div>
+
+                <div class="pricing-card fade-in">
+                    <h3>2 Kutyával</h3>
+                    <div class="price">190.000 Ft</div>
+                    <p style="color: var(--gray); margin-bottom: 1.5rem;">€495</p>
+                    <p>Teljes oktatási program<br>két kutyával</p>
+                </div>
+
+                <div class="pricing-card fade-in">
+                    <h3>Megfigyelő</h3>
+                    <div class="price">60.000 Ft</div>
+                    <p style="color: var(--gray); margin-bottom: 1.5rem;">€155</p>
+                    <p>Részvétel kutya nélkül<br>megfigyelőként</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kapcsolat">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">Kapcsolat</div>
+                <h2 class="section-title">Regisztráció</h2>
+                <p class="section-subtitle">
+                    Foglald le a helyed a XVI. alkalommal megrendezésre kerülő táborban
+                </p>
+            </div>
+
+            <div class="contact-box fade-in">
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 1rem;">Online Jelentkezés</h3>
+                <p style="color: var(--gray); margin-bottom: 1.5rem;">
+                    A jelentkezés az alábbi űrlapon keresztül történik
+                </p>
+                <a href="https://forms.gle/5hceRfcqex2ing88A" target="_blank" class="contact-link">
+                    Regisztrálok Most →
+                </a>
+                <p style="color: var(--gray); margin-top: 2rem; font-size: 0.95rem;">
+                    A regisztrációt követően 1 napon belül visszaigazoló e-mailt küldünk<br>
+                    az előleg és a részvételi díj befizetésével kapcsolatos információkkal.
+                </p>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; color: var(--gray);">
+                <p style="font-size: 1.1rem;">
+                    <strong style="color: var(--light);">Tábor Szervezője</strong><br>
+                    Gránicz Csaba • MTC vezetője
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mantrailing Nemzetközi Tábor | MTC & MAA</p>
+        <p style="margin-top: 0.5rem;">Készült szeretettel a kutyákért 🐾</p>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
